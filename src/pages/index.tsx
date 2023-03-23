@@ -5,17 +5,21 @@ import { getChannels } from "@/service/channels";
 
 export default function Channels() {
 
-    const [channels, setChannels] = useState<IChannel[]>([])
+    const [selectedChannels, setSelectedChannels] = useState<IChannel[]>([])
+    const [unselectedChannels, setUnselectedChannels] = useState<IChannel[]>([])
 
     useEffect(() => {
-        getChannels().then((res: any) => setChannels(res))
+        getChannels().then((res: any) => {
+            setSelectedChannels(res.filter((channel: IChannel) => channel.isSelected))
+            setUnselectedChannels(res.filter((channel: IChannel) => !channel.isSelected))
+        })
     }, [])
 
     return (
         <Layout title="Channels">
-            <Sidebar channels={channels} />
+            <Sidebar selectedChannels={selectedChannels} setSelectedChannels={setSelectedChannels} unselectedChannels={unselectedChannels} setUnselectedChannels={setUnselectedChannels} />
             <div className="channels_container h-screen gap-2 grid grid-cols-2">
-                {channels.filter((channel) => channel.isSelected).map((channel, key) => (
+                {selectedChannels.map((channel, key) => (
                     <Channel key={key} title={channel.title} address={channel.address} />
                 ))}
             </div>

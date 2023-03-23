@@ -1,9 +1,27 @@
 import {BiFullscreen} from "react-icons/bi";
 import {AiOutlineClose} from "react-icons/ai"
-import {List} from "@/components/index";
 import {IChannel} from "@/types/IChannel";
 
-export default function Sidebar({ channels }: any) {
+export default function Sidebar({ selectedChannels, setSelectedChannels, unselectedChannels, setUnselectedChannels }: any) {
+
+    const handleChannel = (channel: IChannel) => {
+        if (channel.isSelected === false) {
+            channel.isSelected = true
+            setUnselectedChannels(unselectedChannels.filter((channel: IChannel) => !channel.isSelected))
+            setSelectedChannels([
+                ...selectedChannels,
+                channel
+            ])
+        } else {
+            channel.isSelected = false
+            setSelectedChannels(selectedChannels.filter((channel: IChannel) => channel.isSelected))
+            setUnselectedChannels([
+                ...unselectedChannels,
+                channel
+            ])
+        }
+    }
+
     return (
         <div className="p-6 bg-[#212529] text-white h-screen w-[300px] absolute text-lg">
             <div className="flex items-center justify-between">
@@ -18,10 +36,18 @@ export default function Sidebar({ channels }: any) {
 
             <div className="mt-20 grid gap-y-4">
                 <h1>Channel List</h1>
-                <div className="grid gap-y-2">
-                    {channels.filter((channel: IChannel) => channel.isSelected).map((channel: IChannel, key: any) => (
-                        <List key={key} title={channel.title} />
-                    ))}
+                <div className="grid gap-y-4">
+                    <div className="grid gap-y-2">
+                        {selectedChannels.map((channel: IChannel, key: any) => (
+                            <button onClick={() => handleChannel(channel)} key={key} className="w-full bg-gray-100 text-black">{channel.title}</button>
+                        ))}
+                    </div>
+                    <hr/>
+                    <div className="grid gap-y-2">
+                        {unselectedChannels.map((channel: IChannel, key: any) => (
+                            <button onClick={() => handleChannel(channel)} key={key} className="w-full bg-gray-100 text-black">{channel.title}</button>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
