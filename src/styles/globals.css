@@ -12,6 +12,6 @@
 
 @layer components {
     .channels_container {
-        @apply max-w-[1800px] p-2 mx-auto
+        @apply max-w-[1800px] mx-auto
     }
 }
