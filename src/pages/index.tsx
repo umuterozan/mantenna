@@ -17,18 +17,25 @@ export default function Channels() {
         })
     }, [])
 
+    const getGridClasses = (channelCount: number) => {
+        const colCount: number = Math.ceil(Math.sqrt(channelCount))
+        const rowCount: number = Math.ceil(channelCount / colCount)
+
+        return `grid-cols-${colCount} grid-rows-${rowCount}`
+    }
+
     return (
         <Layout title="Channels">
             <Sidebar selectedChannels={selectedChannels} setSelectedChannels={setSelectedChannels} unselectedChannels={unselectedChannels} setUnselectedChannels={setUnselectedChannels} isSidebarOpen={isSidebarOpen} setSidebarOpen={setSidebarOpen} />
-            <div onClick={() => setSidebarOpen(false)} className={`fixed w-screen h-screen bg-black opacity-50 ${isSidebarOpen ? "block" : "hidden"}`}></div>
-            <div className="flex items-center bg-[#413543]">
-                <button onClick={() => setSidebarOpen(true)} className="bg-[#2D2727] h-screen text-white hover:text-[#F0EB8D]"><GiTvRemote size={32} /></button>
-                <div className={`channels_container h-screen w-full gap-1 p-1 grid grid-cols-2`}>
-                    {selectedChannels.map((channel) => (
+            <div onClick={() => setSidebarOpen(false)} className={`fixed w-full h-full bg-black opacity-50 ${isSidebarOpen ? "block" : "hidden"}`}></div>
+
+            <div className="fixed h-full flex items-center justify-center"><button onClick={() => setSidebarOpen(true)} className="bg-[#2D2727] text-white hover:text-[#F0EB8D] p-2 rounded flex items-center gap-x-2 hover:after:content-['Kumanda']"><GiTvRemote size={32} /></button></div>
+            <div className="channels_container">
+                <div className={`h-full grid ${getGridClasses(selectedChannels.length)}`}>
+                    {selectedChannels.map((channel, key) => (
                         <Channel key={channel.id} id={channel.id} title={channel.title} address={channel.address} />
                     ))}
                 </div>
-                <button onClick={() => setSidebarOpen(true)} className="bg-[#2D2727] h-screen text-white hover:text-[#F0EB8D]"><GiTvRemote size={32} /></button>
             </div>
         </Layout>
     )

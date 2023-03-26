@@ -32,7 +32,7 @@ export default function Sidebar({ selectedChannels, setSelectedChannels, unselec
     }
 
     return (
-        <div className={`p-6 bg-[#2D2727] text-white h-screen w-[400px] absolute text-lg overflow-y-auto z-10 transition-all ${isSidebarOpen ? "-translate-x-0" : "-translate-x-full"}`}>
+        <div className={`p-6 bg-[#2D2727] text-white h-full w-[400px] fixed text-lg overflow-y-auto z-10 transition-all ${isSidebarOpen ? "-translate-x-0" : "-translate-x-full"}`}>
             <div className="flex items-center justify-between">
                 <h1>Mantenna | Kanallar ({selectedChannels.length})</h1>
                 <div className="flex items-center gap-4">
