@@ -3,108 +3,126 @@
     "id": 1,
     "title": "NTV",
     "address": "XEJM4Hcgd3M",
-    "isSelected": true
+    "isSelected": true,
+    "order": 1
   },
   {
     "id": 2,
     "title": "HABERTÜRK",
     "address": "SqHIO2zhxbA",
-    "isSelected": true
+    "isSelected": true,
+    "order": 2
   },
   {
     "id": 3,
     "title": "HABER GLOBAL",
     "address": "UVPejgEw21c",
-    "isSelected": true
+    "isSelected": true,
+    "order": 3
   },
   {
     "id": 4,
     "title": "TRT HABER",
     "address": "-Lrxv1_i3qc",
-    "isSelected": true
+    "isSelected": true,
+    "order": 4
   },
   {
     "id": 5,
     "title": "TV 100",
     "address": "sd94keSra6A",
-    "isSelected": false
+    "isSelected": false,
+    "order": 5
   },
   {
     "id": 6,
     "title": "HALK TV",
     "address": "r2ZgRoX2orE",
-    "isSelected": false
+    "isSelected": false,
+    "order": 6
   },
   {
     "id": 7,
     "title": "TGRT HABER",
     "address": "gzmG_1SVy8Y",
-    "isSelected": false
+    "isSelected": false,
+    "order": 7
   },
   {
     "id": 8,
     "title": "KRT TV",
     "address": "3QDiWPZ2D_k",
-    "isSelected": false
+    "isSelected": false,
+    "order": 8
   },
   {
     "id": 9,
     "title": "TELE1 ",
     "address": "eenp_e9_c1Q",
-    "isSelected": false
+    "isSelected": false,
+    "order": 9
   },
   {
     "id": 10,
     "title": "SÖZCÜ TV",
     "address": "1amrc2Mxjhs",
-    "isSelected": false
+    "isSelected": false,
+    "order": 10
   },
   {
     "id": 11,
     "title": "ARTI TV",
     "address": "xpoetRCJKqY",
-    "isSelected": false
+    "isSelected": false,
+    "order": 11
   },
   {
     "id": 12,
     "title": "ULUSAL KANAL",
     "address": "LRzXIpwR2Eo",
-    "isSelected": false
+    "isSelected": false,
+    "order": 12
   },
   {
     "id": 13,
     "title": "BLOOMBERG HT",
     "address": "hHSmBJk6w0c",
-    "isSelected": false
+    "isSelected": false,
+    "order": 13
   },
   {
     "id": 14,
     "title": "TVNET",
     "address": "UVW4-DQUVUU",
-    "isSelected": false
+    "isSelected": false,
+    "order": 14
   },
   {
     "id": 15,
     "title": "FLASH HABER TV",
     "address": "oGHfM6AC7QU",
-    "isSelected": false
+    "isSelected": false,
+    "order": 15
   },
   {
     "id": 16,
     "title": "BENGÜTÜRK TV",
     "address": "GKwLomZwX_k",
-    "isSelected": false
+    "isSelected": false,
+    "order": 16
   },
   {
     "id": 17,
     "title": "TV5",
     "address": "zNkYBJ0wKI",
-    "isSelected": false
+    "isSelected": false,
+    "order": 17
   },
   {
     "id": 18,
     "title": "EKOTÜRK TV",
     "address": "oeFbaX4qqxc",
-    "isSelected": false
+    "isSelected": false,
+    "order": 18
   }
 ]

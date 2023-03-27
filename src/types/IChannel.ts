@@ -2,5 +2,6 @@ export interface IChannel {
     id?: number,
     title: string,
     address: string,
-    isSelected?: boolean
+    isSelected: boolean
+    order: number
 }

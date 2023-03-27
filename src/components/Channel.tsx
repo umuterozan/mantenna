@@ -1,6 +1,12 @@
-import { IChannel } from "@/types/IChannel";
+type props = {
+    title: string,
+    address: string
+}
 
-export default function Channel({ title, address }: IChannel) {
+export default function Channel({ title, address }: props) {
+
+    console.log(title, address)
+
     return (
         <iframe width="100%" height="100%" src={`https://www.youtube-nocookie.com/embed/${address}?autoplay=0&mute=1`} className="aspect-video"
                 title={title}

@@ -14,7 +14,7 @@ export default function Sidebar({ selectedChannels, setSelectedChannels, unselec
     }
 
     const handleChannel = (channel: IChannel) => {
-        if (channel.isSelected === false) {
+        if (!channel.isSelected) {
             channel.isSelected = true
             setUnselectedChannels(unselectedChannels.filter((channel: IChannel) => !channel.isSelected))
             setSelectedChannels([
@@ -47,7 +47,7 @@ export default function Sidebar({ selectedChannels, setSelectedChannels, unselec
                         <Droppable droppableId="droppable-1">
                             {(provided, snapshot) => (
                                 <div ref={provided.innerRef} {...provided.droppableProps} className="grid gap-y-2">
-                                    {selectedChannels.map((channel: IChannel, key: any) => (
+                                    {selectedChannels.sort((a: IChannel, b: IChannel) => a.order - b.order).map((channel: IChannel, key: any) => (
                                         <Draggable key={channel.id} draggableId={`draggable-${channel.id}`} index={key}>
                                             {(provided, snapshot) => (
                                                 <div ref={provided.innerRef} {...provided.draggableProps} className="flex items-center justify-between border rounded h-12 text-[#2D2727]">

@@ -1,12 +1,12 @@
 import Head from "next/head";
 import type { ReactNode } from "react";
 
-interface ILayoutProps {
+type props = {
     title: string,
     children: ReactNode
 }
 
-export default function Layout({ title, children }: ILayoutProps) {
+export default function Layout({ title, children }: props) {
     return (
         <>
             <Head>
