@@ -1,5 +1,5 @@
 export interface IChannel {
-    id?: number,
+    id: number,
     title: string,
     address: string,
     isSelected: boolean

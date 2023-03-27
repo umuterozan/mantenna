@@ -43,12 +43,36 @@ export default function Sidebar({ selectedChannels, setSelectedChannels, unselec
 
             <div className="grid gap-y-8">
                 <div className="mt-4">
-                    <DragDropContext onDragEnd={(...props) => console.log(props)}>
+                    <DragDropContext onDragEnd={(result) => {
+                        if (!result.destination) return
+
+                        const sourceIndex = result.source.index
+                        const destinationIndex = result.destination.index
+
+
+                        const newChannels = [...selectedChannels]
+                        const sourceChannel = newChannels[sourceIndex]
+                        const destinationChannel = newChannels[destinationIndex]
+
+                        console.log(sourceIndex, destinationIndex)
+                        console.log(sourceChannel, destinationChannel)
+
+                        sourceChannel.order = destinationChannel.id
+                        destinationChannel.order = sourceChannel.id
+
+                        console.log(sourceChannel, destinationChannel)
+
+
+                        // TODO: this part has bugs
+
+                        setSelectedChannels(newChannels)
+                    }
+                    }>
                         <Droppable droppableId="droppable-1">
                             {(provided, snapshot) => (
                                 <div ref={provided.innerRef} {...provided.droppableProps} className="grid gap-y-2">
-                                    {selectedChannels.sort((a: IChannel, b: IChannel) => a.order - b.order).map((channel: IChannel, key: any) => (
-                                        <Draggable key={channel.id} draggableId={`draggable-${channel.id}`} index={key}>
+                                    {selectedChannels.sort((a: IChannel, b: IChannel) => a.order - b.order).map((channel: IChannel, index: number) => (
+                                        <Draggable key={channel.id} draggableId={`draggable-${channel.id}`} index={index}>
                                             {(provided, snapshot) => (
                                                 <div ref={provided.innerRef} {...provided.draggableProps} className="flex items-center justify-between border rounded h-12 text-[#2D2727]">
                                                     <div className="flex items-center h-full w-full">
@@ -70,8 +94,8 @@ export default function Sidebar({ selectedChannels, setSelectedChannels, unselec
                 <div className="grid gap-y-4">
                     <h1>Gösterilmeyen Kanallar ({unselectedChannels.length})</h1>
                     <div className="grid gap-y-2">
-                        {unselectedChannels.map((channel: IChannel, key: any) => (
-                            <div key={key} className="flex items-center justify-between border rounded h-12 text-[#2D2727]">
+                        {unselectedChannels.map((channel: IChannel) => (
+                            <div key={channel.id} className="flex items-center justify-between border rounded h-12 text-[#2D2727]">
                                 <div className="flex items-center h-full w-full">
                                     <button className="bg-[#F0EB8D] h-full px-4"><MdOutlineSwapVert /></button>
                                     <h2 className="bg-white flex items-center h-full w-full pl-4">{channel.title}</h2>
