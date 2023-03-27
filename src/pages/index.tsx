@@ -1,5 +1,5 @@
 import { Layout, Channel, Sidebar } from "@/components";
-import {useState, useEffect, useRef} from "react";
+import {useState, useEffect} from "react";
 import { IChannel } from "@/types/IChannel";
 import { getChannels } from "@/service/channels";
 import { GiTvRemote } from "react-icons/gi"
@@ -9,6 +9,7 @@ export default function Channels() {
     const [selectedChannels, setSelectedChannels] = useState<IChannel[]>([])
     const [unselectedChannels, setUnselectedChannels] = useState<IChannel[]>([])
     const [isSidebarOpen, setSidebarOpen] = useState(false)
+    const [gridStyles, setGridStyles] = useState({})
 
     useEffect(() => {
         getChannels().then((res: any) => {
@@ -17,12 +18,17 @@ export default function Channels() {
         })
     }, [])
 
-    const getGridClasses = (channelCount: number) => {
-        const colCount: number = Math.ceil(Math.sqrt(channelCount))
-        const rowCount: number = Math.ceil(channelCount / colCount)
+    useEffect(() => {
+        const colCount: number = Math.ceil(Math.sqrt(selectedChannels.length))
+        const rowCount: number = Math.ceil(selectedChannels.length / colCount)
 
-        return `grid-cols-${colCount} grid-rows-${rowCount}`
-    }
+        const gridStyles = {
+            gridTemplateColumns: `repeat(${colCount}, 1fr)`,
+            gridTemplateRows: `repeat(${rowCount}, 1fr)`,
+        };
+
+        setGridStyles(gridStyles)
+    }, [selectedChannels.length])
 
     return (
         <Layout title="Channels">
@@ -31,7 +37,7 @@ export default function Channels() {
 
             <div className="fixed h-full flex items-center justify-center"><button onClick={() => setSidebarOpen(true)} className="bg-[#2D2727] text-white hover:text-[#F0EB8D] p-2 rounded flex items-center gap-x-2 hover:after:content-['Kumanda']"><GiTvRemote size={32} /></button></div>
             <div className="channels_container">
-                <div className={`h-full grid ${getGridClasses(selectedChannels.length)}`}>
+                <div className="h-full grid" style={gridStyles}>
                     {selectedChannels.map((channel, key) => (
                         <Channel key={channel.id} id={channel.id} title={channel.title} address={channel.address} />
                     ))}
