@@ -38,7 +38,7 @@ export default function Channels() {
             <div className="fixed h-full flex items-center justify-center"><button onClick={() => setSidebarOpen(true)} className="bg-[#2D2727] text-white hover:text-[#F0EB8D] p-2 rounded flex items-center gap-x-2 hover:after:content-['Kumanda']"><GiTvRemote size={32} /></button></div>
             <div className="channels_container">
                 <div className="h-full grid" style={gridStyles}>
-                    {selectedChannels.sort((a, b) => a.order - b.order).map((channel) => (
+                    {selectedChannels.map((channel) => (
                         <Channel key={channel.id} title={channel.title} address={channel.address} />
                     ))}
                 </div>

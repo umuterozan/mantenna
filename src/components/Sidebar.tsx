@@ -1,8 +1,8 @@
-import { BiFullscreen } from "react-icons/bi";
-import { AiOutlineClose } from "react-icons/ai"
-import { MdOutlineSwapVert } from "react-icons/md"
+import {BiFullscreen} from "react-icons/bi";
+import {AiOutlineClose} from "react-icons/ai"
+import {MdOutlineSwapVert} from "react-icons/md"
 import {IChannel} from "@/types/IChannel";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import {DragDropContext, Draggable, Droppable} from "react-beautiful-dnd";
 
 export default function Sidebar({ selectedChannels, setSelectedChannels, unselectedChannels, setUnselectedChannels, isSidebarOpen, setSidebarOpen }: any) {
     const handleFullScreen = async () => {
@@ -48,30 +48,16 @@ export default function Sidebar({ selectedChannels, setSelectedChannels, unselec
 
                         const sourceIndex = result.source.index
                         const destinationIndex = result.destination.index
+                        const newSelectedChannels = [...selectedChannels]
+                        newSelectedChannels.splice(destinationIndex, 0, newSelectedChannels.splice(sourceIndex, 1)[0])
 
-
-                        const newChannels = [...selectedChannels]
-                        const sourceChannel = newChannels[sourceIndex]
-                        const destinationChannel = newChannels[destinationIndex]
-
-                        console.log(sourceIndex, destinationIndex)
-                        console.log(sourceChannel, destinationChannel)
-
-                        sourceChannel.order = destinationChannel.id
-                        destinationChannel.order = sourceChannel.id
-
-                        console.log(sourceChannel, destinationChannel)
-
-
-                        // TODO: this part has bugs
-
-                        setSelectedChannels(newChannels)
+                        setSelectedChannels(newSelectedChannels)
                     }
                     }>
                         <Droppable droppableId="droppable-1">
                             {(provided, snapshot) => (
                                 <div ref={provided.innerRef} {...provided.droppableProps} className="grid gap-y-2">
-                                    {selectedChannels.sort((a: IChannel, b: IChannel) => a.order - b.order).map((channel: IChannel, index: number) => (
+                                    {selectedChannels.map((channel: IChannel, index: number) => (
                                         <Draggable key={channel.id} draggableId={`draggable-${channel.id}`} index={index}>
                                             {(provided, snapshot) => (
                                                 <div ref={provided.innerRef} {...provided.draggableProps} className="flex items-center justify-between border rounded h-12 text-[#2D2727]">
