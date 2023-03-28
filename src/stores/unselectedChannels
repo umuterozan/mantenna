@@ -1,0 +1,21 @@
+import { createSlice } from "@reduxjs/toolkit";
+
+const initialState = {
+    unselectedChannels: []
+}
+
+const unselectedChannels = createSlice({
+    name: 'unselectedChannels',
+    initialState,
+    reducers: {
+        addChannel: (state, action) => {
+            state.unselectedChannels = [
+                ...unselectedChannels,
+                action.payload
+            ]
+        }
+    }
+})
+
+export const { addChannel } = unselectedChannels.actions
+export default unselectedChannels.reducer

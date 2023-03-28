@@ -1,6 +1,7 @@
 import {BiFullscreen} from "react-icons/bi";
 import {AiOutlineClose} from "react-icons/ai"
 import {MdOutlineSwapVert} from "react-icons/md"
+import { GrChannel } from "react-icons/gr"
 import {IChannel} from "@/types/IChannel";
 import {DragDropContext, Draggable, Droppable} from "react-beautiful-dnd";
 
@@ -34,7 +35,7 @@ export default function Sidebar({ selectedChannels, setSelectedChannels, unselec
     return (
         <div className={`p-6 bg-[#2D2727] text-white h-full w-[400px] fixed text-lg overflow-y-auto z-10 transition-all ${isSidebarOpen ? "-translate-x-0" : "-translate-x-full"}`}>
             <div className="flex items-center justify-between">
-                <h1>Mantenna | Kanallar ({selectedChannels.length})</h1>
+                <h1>Gösterilen Kanallar ({selectedChannels.length})</h1>
                 <div className="flex items-center gap-4">
                     <button onClick={handleFullScreen}><BiFullscreen className="text-gray-400 hover:text-[#D8D8D8]" size={32}/></button>
                     <button onClick={() => setSidebarOpen(false)}><AiOutlineClose className="text-gray-400 hover:text-[#D8D8D8]" size={32}/></button>
@@ -52,8 +53,7 @@ export default function Sidebar({ selectedChannels, setSelectedChannels, unselec
                         newSelectedChannels.splice(destinationIndex, 0, newSelectedChannels.splice(sourceIndex, 1)[0])
 
                         setSelectedChannels(newSelectedChannels)
-                    }
-                    }>
+                    }}>
                         <Droppable droppableId="droppable-1">
                             {(provided, snapshot) => (
                                 <div ref={provided.innerRef} {...provided.droppableProps} className="grid gap-y-2">
@@ -83,7 +83,7 @@ export default function Sidebar({ selectedChannels, setSelectedChannels, unselec
                         {unselectedChannels.map((channel: IChannel) => (
                             <div key={channel.id} className="flex items-center justify-between border rounded h-12 text-[#2D2727]">
                                 <div className="flex items-center h-full w-full">
-                                    <button className="bg-[#F0EB8D] h-full px-4"><MdOutlineSwapVert /></button>
+                                    <button className="bg-[#F0EB8D] h-full px-4 cursor-default"><GrChannel /></button>
                                     <h2 className="bg-white flex items-center h-full w-full pl-4">{channel.title}</h2>
                                 </div>
                                 <button className="bg-[#F0EB8D] h-full px-4" onClick={() => handleChannel(channel)}>Add</button>
