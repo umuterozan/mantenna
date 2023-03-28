@@ -4,9 +4,18 @@ import {MdOutlineSwapVert} from "react-icons/md"
 import { GrChannel } from "react-icons/gr"
 import {IChannel} from "@/types/IChannel";
 import {DragDropContext, Draggable, Droppable} from "react-beautiful-dnd";
+import { useDispatch, useSelector } from "react-redux";
+import { setSelectedChannels, addSelectedChannel, deleteSelectedChannel } from "@/stores/selectedChannels";
+import { addUnselectedChannel, deleteUnselectedChannel } from "@/stores/unselectedChannels";
 
-export default function Sidebar({ selectedChannels, setSelectedChannels, unselectedChannels, setUnselectedChannels, isSidebarOpen, setSidebarOpen }: any) {
-    const handleFullScreen = async () => {
+export default function Sidebar({ isSidebarOpen, setSidebarOpen }: any) {
+
+    const dispatch = useDispatch()
+    const selectedChannels: IChannel[] = useSelector((state: any)=> state.selectedChannels.selectedChannels)
+    const unselectedChannels: IChannel[] = useSelector((state: any) => state.unselectedChannels.unselectedChannels)
+
+
+    async function handleFullScreen() {
         if (document.fullscreenElement) {
             await document.exitFullscreen()
         } else {
@@ -14,22 +23,16 @@ export default function Sidebar({ selectedChannels, setSelectedChannels, unselec
         }
     }
 
-    const handleChannel = (channel: IChannel) => {
-        if (!channel.isSelected) {
-            channel.isSelected = true
-            setUnselectedChannels(unselectedChannels.filter((channel: IChannel) => !channel.isSelected))
-            setSelectedChannels([
-                ...selectedChannels,
-                channel
-            ])
-        } else {
-            channel.isSelected = false
-            setSelectedChannels(selectedChannels.filter((channel: IChannel) => channel.isSelected))
-            setUnselectedChannels([
-                ...unselectedChannels,
-                channel
-            ])
+    function handleChannel(channel: IChannel, destinationList: string) {
+        if (destinationList === "selected") {
+            dispatch(addSelectedChannel(channel))
+            dispatch(deleteUnselectedChannel(channel.id))
         }
+
+        if (destinationList === "unselected") {
+            dispatch(addUnselectedChannel(channel))
+            dispatch(deleteSelectedChannel(channel.id))
+        } 
     }
 
     return (
@@ -52,7 +55,7 @@ export default function Sidebar({ selectedChannels, setSelectedChannels, unselec
                         const newSelectedChannels = [...selectedChannels]
                         newSelectedChannels.splice(destinationIndex, 0, newSelectedChannels.splice(sourceIndex, 1)[0])
 
-                        setSelectedChannels(newSelectedChannels)
+                        dispatch(setSelectedChannels(newSelectedChannels))
                     }}>
                         <Droppable droppableId="droppable-1">
                             {(provided, snapshot) => (
@@ -65,7 +68,7 @@ export default function Sidebar({ selectedChannels, setSelectedChannels, unselec
                                                         <button {...provided.dragHandleProps} className="bg-[#F0EB8D] h-full px-4"><MdOutlineSwapVert /></button>
                                                         <h2 className="bg-white flex items-center h-full w-full pl-4">{channel.title}</h2>
                                                     </div>
-                                                    <button className="bg-[#F0EB8D] h-full px-4" onClick={() => handleChannel(channel)}>Drop</button>
+                                                    <button className="bg-[#F0EB8D] h-full px-4" onClick={() => handleChannel(channel, "unselected")}>Drop</button>
                                                 </div>
                                             )}
                                         </Draggable>
@@ -86,7 +89,7 @@ export default function Sidebar({ selectedChannels, setSelectedChannels, unselec
                                     <button className="bg-[#F0EB8D] h-full px-4 cursor-default"><GrChannel /></button>
                                     <h2 className="bg-white flex items-center h-full w-full pl-4">{channel.title}</h2>
                                 </div>
-                                <button className="bg-[#F0EB8D] h-full px-4" onClick={() => handleChannel(channel)}>Add</button>
+                                <button className="bg-[#F0EB8D] h-full px-4" onClick={() => handleChannel(channel, "selected")}>Add</button>
                             </div>
                         ))}
                     </div>
