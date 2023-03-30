@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import channels from "@/data/channels.json";
-import { IChannel } from "@/types/IChannel";
+import type { IChannel } from "@/types/IChannel";
 
 export default function getChannels(
     req: NextApiRequest,

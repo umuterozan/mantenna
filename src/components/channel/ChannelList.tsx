@@ -1,6 +1,6 @@
 import ChannelItem from "./ChannelItem";
 import { useState, useEffect } from "react";
-import { IChannel } from "@/types/IChannel";
+import type { IChannel } from "@/types/IChannel";
 import { useSelector } from "react-redux";
 
 export default function ChannelList() {

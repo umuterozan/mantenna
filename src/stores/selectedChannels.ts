@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IChannel } from "@/types/IChannel";
+import type { IChannel } from "@/types/IChannel";
 
 const initialState: { selectedChannels: IChannel[] } = {
     selectedChannels: [],
