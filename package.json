@@ -14,6 +14,7 @@
     "@types/react": "18.0.28",
     "@types/react-beautiful-dnd": "^13.1.4",
     "@types/react-dom": "18.0.11",
+    "@types/react-modal": "^3.13.1",
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
     "next": "13.2.4",
@@ -21,6 +22,7 @@
     "react-beautiful-dnd": "^13.1.1",
     "react-dom": "18.2.0",
     "react-icons": "^4.8.0",
+    "react-modal": "^3.16.1",
     "react-redux": "^8.0.5",
     "typescript": "5.0.2"
   },
