@@ -12,8 +12,9 @@ type props = {
 };
 
 export default function SelectedItem({ provided, channel }: props) {
-    const dispatch = useDispatch();
 
+    const dispatch = useDispatch()
+    
     function handleChannel(channel: IChannel) {
         dispatch(addUnselectedChannel(channel));
         dispatch(deleteSelectedChannel(channel.id));

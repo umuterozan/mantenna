@@ -29,6 +29,7 @@ export default function ChannelList() {
                         key={channel.id}
                         title={channel.title}
                         address={channel.address}
+                        autoplay={channel.autoplay}
                     />
                 ))}
             </div>

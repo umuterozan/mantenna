@@ -23,6 +23,12 @@ const unselectedChannels = createSlice({
                 (channel: IChannel) => channel.id !== action.payload
             );
         },
+        changeUnselectedChannel: (state, action) => {
+            const unselectedChannelsCopy = [...state.unselectedChannels]
+            const targetIndex = state.unselectedChannels.findIndex(c => c.id === action.payload.id)
+            unselectedChannelsCopy[targetIndex] = action.payload
+            state.unselectedChannels = unselectedChannelsCopy
+        }
     },
 });
 
@@ -30,5 +36,6 @@ export const {
     setUnselectedChannels,
     addUnselectedChannel,
     deleteUnselectedChannel,
+    changeUnselectedChannel
 } = unselectedChannels.actions;
 export default unselectedChannels.reducer;
