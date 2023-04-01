@@ -1,4 +1,5 @@
 import { MdOutlineSwapVert } from "react-icons/md";
+import { AiOutlineMinus } from "react-icons/ai";
 import type { IChannel } from "@/types/IChannel";
 import type { DraggableProvided } from "react-beautiful-dnd";
 import { useDispatch } from "react-redux";
@@ -31,7 +32,7 @@ export default function SelectedItem({ provided, channel }: props) {
                 >
                     <MdOutlineSwapVert />
                 </button>
-                <h2 className="bg-white flex items-center h-full w-full pl-4">
+                <h2 className="bg-white flex items-center h-full w-full pl-4 font-bold">
                     {channel.title}
                 </h2>
             </div>
@@ -39,7 +40,7 @@ export default function SelectedItem({ provided, channel }: props) {
                 className="bg-[#F0EB8D] h-full px-4"
                 onClick={() => handleChannel(channel)}
             >
-                Drop
+                <AiOutlineMinus />
             </button>
         </div>
     );
