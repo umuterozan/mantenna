@@ -55,9 +55,9 @@ export default function UnselectedItem({ channel }: prop) {
             <div className="flex items-center h-full w-full">
                 <button
                     onClick={openModal}
-                    className="bg-[#F0EB8D] h-full px-4"
+                    className="bg-[#F0EB8D] h-full px-4 group"
                 >
-                    <FiSettings />
+                    <FiSettings className="group-hover:rotate-12" />
                 </button>
                 <h2 className="bg-white flex items-center h-full w-full pl-4 font-bold">
                     {channel.title}
@@ -79,7 +79,7 @@ export default function UnselectedItem({ channel }: prop) {
                 <div className="grid gap-y-8 text-[#2D2727]">
                     <div className="flex items-center justify-between">
                         <h1 className="text-xl font-bold">Kanal Ayarları</h1>
-                        <button onClick={closeModal}>
+                        <button onClick={closeModal} className="transition-all hover:text-[#8F43EE]">
                             <AiOutlineClose size={24} />
                         </button>
                     </div>
@@ -92,7 +92,7 @@ export default function UnselectedItem({ channel }: prop) {
                                 Başlık
                             </label>
                             <input
-                                className="border outline-none border-[#2D2727] rounded-lg focus:border-[#8F43EE] p-2.5"
+                                className="border outline-none border-[#2D2727] rounded-lg hover:border-[#8F43EE] focus:border-[#8F43EE] p-2.5"
                                 type="text"
                                 name="title"
                                 placeholder="Başlık"
@@ -109,7 +109,7 @@ export default function UnselectedItem({ channel }: prop) {
                                 Bağlantı adresi
                             </label>
                             <input
-                                className="border outline-none border-[#2D2727] rounded-lg focus:border-[#8F43EE] p-2.5"
+                                className="border outline-none border-[#2D2727] rounded-lg hover:border-[#8F43EE] focus:border-[#8F43EE] p-2.5"
                                 type="text"
                                 name="address"
                                 placeholder="Adres"
@@ -131,7 +131,7 @@ export default function UnselectedItem({ channel }: prop) {
                                 Otomatik oynatma
                             </span>
                         </label>
-                        <button className="bg-[#F0EB8D] py-2 rounded mt-4 font-medium">
+                        <button className="bg-[#F0EB8D] py-2 rounded mt-4 font-medium transition-all hover:bg-gray-200">
                             Kaydet
                         </button>
                     </form>
