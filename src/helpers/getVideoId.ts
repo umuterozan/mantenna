@@ -5,5 +5,6 @@ export default function getVideoId(url: any) {
     } else if (url.includes("youtube.com/watch?v=")) {
         videoId = url.split("v=").pop().split("&")[0];
     }
+
     return videoId;
 }

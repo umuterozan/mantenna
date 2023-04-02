@@ -10,6 +10,7 @@ import { changeUnselectedChannel } from "@/stores/unselectedChannels";
 import ReactModal from "react-modal";
 import getVideoId from "@/helpers/getVideoId";
 import modalStyles from "@/helpers/modalStyles";
+import toast from 'react-hot-toast';
 ReactModal.setAppElement("#__next");
 
 type prop = {
@@ -31,6 +32,7 @@ export default function UnselectedItem({ channel }: prop) {
     function handleChannel(channel: IChannel) {
         dispatch(addSelectedChannel(channel));
         dispatch(deleteUnselectedChannel(channel.id));
+        toast.success(channel.title, { icon: '➕' })
     }
 
     function handleSubmit(e: any) {
@@ -44,6 +46,7 @@ export default function UnselectedItem({ channel }: prop) {
                 autoplay: e.target.elements.autoplay.checked,
             })
         );
+        toast.success(`${channel.title} ayarları değiştirildi.`)
         closeModal();
     }
 
@@ -94,6 +97,7 @@ export default function UnselectedItem({ channel }: prop) {
                                 name="title"
                                 placeholder="Başlık"
                                 defaultValue={channel.title}
+                                maxLength={20}
                                 required
                             />
                         </div>
@@ -102,7 +106,7 @@ export default function UnselectedItem({ channel }: prop) {
                                 htmlFor="title"
                                 className="text-sm font-medium"
                             >
-                                Link
+                                Bağlantı adresi
                             </label>
                             <input
                                 className="border outline-none border-[#2D2727] rounded-lg focus:border-[#8F43EE] p-2.5"
@@ -110,6 +114,8 @@ export default function UnselectedItem({ channel }: prop) {
                                 name="address"
                                 placeholder="Adres"
                                 defaultValue={`https://youtu.be/${channel.address}`}
+                                pattern="^(https?:\/\/)?(www\.)?(youtu\.be\/([a-zA-Z0-9_-]+)|youtube\.com\/watch\?v=([a-zA-Z0-9_-]+))$"
+                                title={`Lütfen 'youtu.be/${channel.address}' veya 'youtube.com/watch?v=${channel.address}' biçiminde bir bağlantı adresi girin.`}
                                 required
                             />
                         </div>

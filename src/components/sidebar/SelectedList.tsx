@@ -3,6 +3,7 @@ import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import type { IChannel } from "@/types/IChannel";
 import { useSelector, useDispatch } from "react-redux";
 import { setSelectedChannels } from "@/stores/selectedChannels";
+import toast from 'react-hot-toast';
 
 export default function SelectedList() {
     const dispatch = useDispatch();
@@ -23,6 +24,7 @@ export default function SelectedList() {
         );
 
         dispatch(setSelectedChannels(newSelectedChannels));
+        toast.success(`${selectedChannels[sourceIndex].title} ⚡ ${selectedChannels[destinationIndex].title}`)
     }
 
     return (

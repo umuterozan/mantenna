@@ -7,6 +7,7 @@ import { setSelectedChannels } from "@/stores/selectedChannels";
 import { setUnselectedChannels } from "@/stores/unselectedChannels";
 import TvRemote from "@/components/sidebar/TvRemote";
 import SidebarEffect from "@/components/sidebar/SidebarEffect";
+import { Toaster } from "react-hot-toast";
 
 export default function Index({ data }: any) {
     const dispatch = useDispatch();
@@ -25,6 +26,11 @@ export default function Index({ data }: any) {
             <TvRemote />
 
             <ChannelList />
+
+            <Toaster 
+            position="top-right"
+            reverseOrder={false}
+            />
         </Layout>
     );
 }

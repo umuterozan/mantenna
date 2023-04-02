@@ -5,6 +5,7 @@ import type { DraggableProvided } from "react-beautiful-dnd";
 import { useDispatch } from "react-redux";
 import { addUnselectedChannel } from "@/stores/unselectedChannels";
 import { deleteSelectedChannel } from "@/stores/selectedChannels";
+import toast from 'react-hot-toast';
 
 type props = {
     provided: DraggableProvided;
@@ -17,6 +18,7 @@ export default function SelectedItem({ provided, channel }: props) {
     function handleChannel(channel: IChannel) {
         dispatch(addUnselectedChannel(channel));
         dispatch(deleteSelectedChannel(channel.id));
+        toast.success(channel.title, { icon: '➖' })
     }
 
     return (
