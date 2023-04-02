@@ -73,7 +73,7 @@ export default function UnselectedList() {
             >
                 <div className="grid gap-y-8 text-[#2D2727]">
                     <div className="flex items-center justify-between">
-                        <h1 className="text-xl font-bold">Kanal Ayarları</h1>
+                        <h1 className="text-xl font-bold">Yeni Kanal</h1>
                         <button
                             onClick={closeModal}
                             className="transition-all hover:text-[#8F43EE]"
