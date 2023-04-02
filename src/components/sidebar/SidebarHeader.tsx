@@ -24,7 +24,9 @@ export default function SidebarHeader() {
 
     return (
         <div className="flex items-center justify-between">
-            <h1 className="font-light">Gösterilen Kanallar ({selectedChannels.length})</h1>
+            <h1 className="font-light">
+                Gösterilen Kanallar ({selectedChannels.length})
+            </h1>
             <div className="flex items-center gap-4">
                 <button onClick={handleFullScreen}>
                     <BiFullscreen

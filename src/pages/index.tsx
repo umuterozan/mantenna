@@ -17,7 +17,7 @@ export default function Index({ data }: any) {
     }, []);
 
     return (
-        <Layout title="Mantenna | Channels">
+        <Layout title="Mantenna | Kanallar">
             <Sidebar />
 
             <SidebarEffect />

@@ -9,7 +9,6 @@ const store = configureStore({
         selectedChannels,
         unselectedChannels,
         isSidebarOpen,
-        isModalOpen,
     },
 });
 

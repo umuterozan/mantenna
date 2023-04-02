@@ -9,7 +9,9 @@ export default function UnselectedList() {
 
     return (
         <div className="grid gap-y-4">
-            <h1 className="font-light">Gösterilmeyen Kanallar ({unselectedChannels.length})</h1>
+            <h1 className="font-light">
+                Gösterilmeyen Kanallar ({unselectedChannels.length})
+            </h1>
             <div className="grid gap-y-2">
                 {unselectedChannels.map((channel: IChannel) => (
                     <UnselectedItem key={channel.id} channel={channel} />
