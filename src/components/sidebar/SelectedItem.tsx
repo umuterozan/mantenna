@@ -5,7 +5,7 @@ import type { DraggableProvided } from "react-beautiful-dnd";
 import { useDispatch } from "react-redux";
 import { addUnselectedChannel } from "@/stores/unselectedChannels";
 import { deleteSelectedChannel } from "@/stores/selectedChannels";
-import toast from 'react-hot-toast';
+import toast from "react-hot-toast";
 
 type props = {
     provided: DraggableProvided;
@@ -18,7 +18,7 @@ export default function SelectedItem({ provided, channel }: props) {
     function handleChannel(channel: IChannel) {
         dispatch(addUnselectedChannel(channel));
         dispatch(deleteSelectedChannel(channel.id));
-        toast.success(channel.title, { icon: '➖' })
+        toast.success(channel.title, { icon: "➖" });
     }
 
     return (
@@ -30,7 +30,7 @@ export default function SelectedItem({ provided, channel }: props) {
             <div className="flex items-center h-full w-full">
                 <button
                     {...provided.dragHandleProps}
-                    className="bg-[#F0EB8D] h-full px-4"
+                    className="bg-[#F0EB8D] hover:bg-gray-200 transition-all h-full px-4"
                 >
                     <MdOutlineSwapVert />
                 </button>
@@ -39,7 +39,7 @@ export default function SelectedItem({ provided, channel }: props) {
                 </h2>
             </div>
             <button
-                className="bg-[#F0EB8D] h-full px-4"
+                className="bg-[#F0EB8D] hover:bg-gray-200 transition-all h-full px-4"
                 onClick={() => handleChannel(channel)}
             >
                 <AiOutlineMinus />

@@ -30,13 +30,13 @@ export default function SidebarHeader() {
             <div className="flex items-center gap-4">
                 <button onClick={handleFullScreen}>
                     <BiFullscreen
-                        className="text-gray-400 hover:text-[#D8D8D8]"
+                        className="text-gray-400 hover:text-[#D8D8D8] transition-all"
                         size={32}
                     />
                 </button>
                 <button onClick={closeSidebar}>
                     <AiOutlineClose
-                        className="text-gray-400 hover:text-[#D8D8D8]"
+                        className="text-gray-400 hover:text-[#D8D8D8] transition-all"
                         size={32}
                     />
                 </button>

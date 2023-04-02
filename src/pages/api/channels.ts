@@ -13,5 +13,6 @@ export default function getChannels(
         unselectedChannels: channels.filter(
             (channel: IChannel) => !channel.isSelected
         ),
+        channelsCount: channels.length,
     });
 }

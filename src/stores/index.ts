@@ -2,13 +2,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import selectedChannels from "./selectedChannels";
 import unselectedChannels from "./unselectedChannels";
 import isSidebarOpen from "./isSidebarOpen";
-import isModalOpen from "./isModalOpen";
+import channelsCount from "./channelsCount";
 
 const store = configureStore({
     reducer: {
         selectedChannels,
         unselectedChannels,
         isSidebarOpen,
+        channelsCount,
     },
 });
 

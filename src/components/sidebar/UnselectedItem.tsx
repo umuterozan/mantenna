@@ -10,7 +10,7 @@ import { changeUnselectedChannel } from "@/stores/unselectedChannels";
 import ReactModal from "react-modal";
 import getVideoId from "@/helpers/getVideoId";
 import modalStyles from "@/helpers/modalStyles";
-import toast from 'react-hot-toast';
+import toast from "react-hot-toast";
 ReactModal.setAppElement("#__next");
 
 type prop = {
@@ -32,7 +32,7 @@ export default function UnselectedItem({ channel }: prop) {
     function handleChannel(channel: IChannel) {
         dispatch(addSelectedChannel(channel));
         dispatch(deleteUnselectedChannel(channel.id));
-        toast.success(channel.title, { icon: '➕' })
+        toast.success(channel.title, { icon: "➕" });
     }
 
     function handleSubmit(e: any) {
@@ -46,7 +46,7 @@ export default function UnselectedItem({ channel }: prop) {
                 autoplay: e.target.elements.autoplay.checked,
             })
         );
-        toast.success(`${channel.title} ayarları değiştirildi.`)
+        toast.success(`${channel.title} ayarları değiştirildi.`);
         closeModal();
     }
 
@@ -55,7 +55,7 @@ export default function UnselectedItem({ channel }: prop) {
             <div className="flex items-center h-full w-full">
                 <button
                     onClick={openModal}
-                    className="bg-[#F0EB8D] h-full px-4 group"
+                    className="bg-[#F0EB8D] hover:bg-gray-200 transition-all h-full px-4 group"
                 >
                     <FiSettings className="group-hover:rotate-12" />
                 </button>
@@ -64,7 +64,7 @@ export default function UnselectedItem({ channel }: prop) {
                 </h2>
             </div>
             <button
-                className="bg-[#F0EB8D] h-full px-4"
+                className="bg-[#F0EB8D] hover:bg-gray-200 transition-all h-full px-4"
                 onClick={() => handleChannel(channel)}
             >
                 <GrAdd />
@@ -79,7 +79,10 @@ export default function UnselectedItem({ channel }: prop) {
                 <div className="grid gap-y-8 text-[#2D2727]">
                     <div className="flex items-center justify-between">
                         <h1 className="text-xl font-bold">Kanal Ayarları</h1>
-                        <button onClick={closeModal} className="transition-all hover:text-[#8F43EE]">
+                        <button
+                            onClick={closeModal}
+                            className="transition-all hover:text-[#8F43EE]"
+                        >
                             <AiOutlineClose size={24} />
                         </button>
                     </div>
@@ -112,7 +115,7 @@ export default function UnselectedItem({ channel }: prop) {
                                 className="border outline-none border-[#2D2727] rounded-lg hover:border-[#8F43EE] focus:border-[#8F43EE] p-2.5"
                                 type="text"
                                 name="address"
-                                placeholder="Adres"
+                                placeholder="Bağlantı adresi"
                                 defaultValue={`https://youtu.be/${channel.address}`}
                                 pattern="^(https?:\/\/)?(www\.)?(youtu\.be\/([a-zA-Z0-9_-]+)|youtube\.com\/watch\?v=([a-zA-Z0-9_-]+))$"
                                 title={`Lütfen 'youtu.be/${channel.address}' veya 'youtube.com/watch?v=${channel.address}' biçiminde bir bağlantı adresi girin.`}
