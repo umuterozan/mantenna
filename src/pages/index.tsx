@@ -15,7 +15,7 @@ export default function Index({ data }: any) {
     useEffect(() => {
         dispatch(setUnselectedChannels(data.channels));
         dispatch(setChannelsCount(data.channelsCount));
-    }, [data.channels, data.channelsCount]);
+    }, [data.channels, data.channelsCount, dispatch]);
 
     return (
         <Layout title="Mantenna">
@@ -33,7 +33,7 @@ export default function Index({ data }: any) {
 }
 
 export async function getStaticProps() {
-    const res = await fetch("https://mantenna.vercel.app/api/channels");
+    const res = await fetch(`${process.env.API_URL}/api/channels`);
     const data = await res.json();
 
     return {
