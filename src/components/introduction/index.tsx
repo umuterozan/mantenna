@@ -29,7 +29,7 @@ export default function Introduction() {
                             uygulamasıdır.
                         </p>
                         <p>
-                            📌 Mantenna'nın en çok haber kanallarını takip
+                            📌 Mantenna&apos;nın en çok haber kanallarını takip
                             etmeye yarayacağını düşündüğümüz için varsayılan
                             olarak haber kanalları eklenmiştir.
                         </p>

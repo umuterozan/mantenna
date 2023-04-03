@@ -15,7 +15,7 @@ export default function Index({ data }: any) {
     useEffect(() => {
         dispatch(setUnselectedChannels(data.channels));
         dispatch(setChannelsCount(data.channelsCount));
-    }, []);
+    }, [data.channels, data.channelsCount]);
 
     return (
         <Layout title="Mantenna">
