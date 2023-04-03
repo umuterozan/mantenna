@@ -42,7 +42,6 @@ export default function UnselectedItem({ channel }: prop) {
                 id: channel.id,
                 title: e.target.elements.title.value,
                 address: getVideoId(e.target.elements.address.value),
-                isSelected: channel.isSelected,
                 autoplay: e.target.elements.autoplay.checked,
             })
         );

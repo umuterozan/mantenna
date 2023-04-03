@@ -37,7 +37,6 @@ export default function UnselectedList() {
                 id: channelsCount + 1,
                 title: e.target.elements.title.value,
                 address: getVideoId(e.target.elements.address.value),
-                isSelected: false,
                 autoplay: e.target.elements.autoplay.checked,
             })
         );

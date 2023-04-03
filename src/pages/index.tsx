@@ -3,7 +3,6 @@ import Sidebar from "@/components/sidebar/Sidebar";
 import { useEffect } from "react";
 import ChannelList from "@/components/channel/ChannelList";
 import { useDispatch } from "react-redux";
-import { setSelectedChannels } from "@/stores/selectedChannels";
 import { setUnselectedChannels } from "@/stores/unselectedChannels";
 import { setChannelsCount } from "@/stores/channelsCount";
 import TvRemote from "@/components/sidebar/TvRemote";
@@ -14,13 +13,12 @@ export default function Index({ data }: any) {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(setSelectedChannels(data.selectedChannels));
-        dispatch(setUnselectedChannels(data.unselectedChannels));
+        dispatch(setUnselectedChannels(data.channels));
         dispatch(setChannelsCount(data.channelsCount));
     }, []);
 
     return (
-        <Layout title="Mantenna | Kanallar">
+        <Layout title="Mantenna">
             <Sidebar />
 
             <SidebarEffect />

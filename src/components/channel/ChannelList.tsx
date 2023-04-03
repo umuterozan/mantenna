@@ -2,6 +2,7 @@ import ChannelItem from "./ChannelItem";
 import { useState, useEffect } from "react";
 import type { IChannel } from "@/types/IChannel";
 import { useSelector } from "react-redux";
+import Introduction from "../introduction";
 
 export default function ChannelList() {
     const selectedChannels: IChannel[] = useSelector(
@@ -22,25 +23,25 @@ export default function ChannelList() {
     }, [selectedChannels.length]);
 
     return (
-        <div className="channels_container">
+        <>
             {selectedChannels.length > 0 ? (
-                <div className="h-full grid" style={gridStyles}>
-                    {selectedChannels.map((channel: IChannel) => (
-                        <ChannelItem
-                            key={channel.id}
-                            title={channel.title}
-                            address={channel.address}
-                            autoplay={channel.autoplay}
-                        />
-                    ))}
+                <div className="channels_container">
+                    <div className="h-full grid" style={gridStyles}>
+                        {selectedChannels.map((channel: IChannel) => (
+                            <ChannelItem
+                                key={channel.id}
+                                title={channel.title}
+                                address={channel.address}
+                                autoplay={channel.autoplay}
+                            />
+                        ))}
+                    </div>
                 </div>
             ) : (
-                <div>
-                    <h1>Mantenna | Multi TV</h1>
-                    <p>Ekranın solunda yer alan kumanda ikonundan seçtiğiniz kanalları ekranda listeleyebilir, youtube adresi, otomatik oynatma gibi ayarlarını yapabilirsiniz.</p>
+                <div className="introduction_container">
+                    <Introduction />
                 </div>
             )}
-
-        </div>
+        </>
     );
 }
