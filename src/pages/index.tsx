@@ -33,7 +33,7 @@ export default function Index({ data }: any) {
 }
 
 export async function getStaticProps() {
-    const res = await fetch("http://localhost:3000/api/channels");
+    const res = await fetch(`${process.env.API_URL}/api/channels`);
     const data = await res.json();
 
     return {
