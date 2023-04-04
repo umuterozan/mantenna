@@ -29,4 +29,3 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 | Endpoint | Description |
 | - | - |
 | `/api/channels` | Send `GET` request to fetch all channels. |
-|
