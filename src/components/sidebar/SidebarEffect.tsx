@@ -14,7 +14,7 @@ export default function SidebarEffect() {
     return (
         <div
             onClick={closeSidebar}
-            className={`fixed w-full h-full bg-black opacity-50 z-10 ${
+            className={`fixed w-full h-full bg-black opacity-50 z-20 ${
                 isSidebarOpen ? "block" : "hidden"
             }`}
         ></div>

@@ -9,7 +9,7 @@ export default function Sidebar() {
 
     return (
         <div
-            className={`p-6 bg-[#2D2727] text-white h-full w-[400px] fixed text-lg overflow-y-auto z-20 transition-all ${
+            className={`p-6 bg-[#2D2727] text-white h-full w-[400px] fixed text-lg overflow-y-auto z-30 transition-all ${
                 isSidebarOpen ? "-translate-x-0" : "-translate-x-full"
             }`}
         >
