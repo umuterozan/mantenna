@@ -27,22 +27,17 @@ class MyDocument extends Document {
                     />
                     <meta property="og:title" content="Mantenna" />
                     <meta property="og:site_name" content="Mantenna" />
-                    <meta property="og:description" content="Lorem ipsum" />
+                    <meta property="og:description" content="Mantenna, youtube üzerindeki canlı yayınları aynı anda izlemenize olanak tanıyan bir web uygulamasıdır." />
+                    <meta property="og:locale" content="tr_TR" />
                     <meta
                         property="og:image"
                         content="https://mantenna.vercel.app/introduction.png"
                     />
-                    <meta
-                        property="og:image:secure_url"
-                        content="https://cdn.discordapp.com/attachments/696680870177931355/1092533018482200596/introduction.png"
-                    />
-                    <meta property="og:image:type" content="image/png" />
-                    <meta property="og:image:width" content="994" />
-                    <meta property="og:image:height" content="786" />
-                    <meta
-                        property="og:image:alt"
-                        content="Mantenna introduction page"
-                    />
+                    <meta name="twitter:card" content="summary_large_image" />
+                    <meta name="twitter:title" content="Mantenna" />
+                    <meta name="twitter:description" content="Mantenna, youtube üzerindeki canlı yayınları aynı anda izlemenize olanak tanıyan bir web uygulamasıdır." />
+                    <meta name="twitter:url" content="https://mantenna.vercel.app" />
+                    <meta name="twitter:image" content="https://mantenna.vercel.app/introduction.png" />
                     <link rel="shortcut icon" href="/favicon.svg" />
                 </Head>
                 <body>
