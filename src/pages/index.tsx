@@ -1,3 +1,4 @@
+import channels from "@/data/channels.json"
 import Layout from "@/components/Layout";
 import Sidebar from "@/components/sidebar/Sidebar";
 import { useEffect } from "react";
@@ -33,8 +34,10 @@ export default function Index({ data }: any) {
 }
 
 export async function getStaticProps() {
-    const res = await fetch(`${process.env.API_URL}/api/channels`);
-    const data = await res.json();
+    const data = {
+        channels,
+        channelsCount: channels.length
+    }
 
     return {
         props: {

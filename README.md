@@ -21,3 +21,12 @@ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## API
+
+[https://mantenna.vercel.app/api/channels](https://mantenna.vercel.app/api/channels)
+
+| Endpoint | Description |
+| - | - |
+| `/api/channels` | Send `GET` request to fetch all channels. |
+|
