@@ -2,7 +2,7 @@
 
 ## About Mantenna
 
-📌 Mantenna is a web application that allows you to watch live streams on youtube at the same time.
+📌 Mantenna is a web application that allows you to watch multiple live streams on youtube at the same time.
 
 📌 You can access the app by visiting the link below.
 
