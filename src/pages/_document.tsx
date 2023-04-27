@@ -50,7 +50,14 @@ class MyDocument extends Document {
                         name="twitter:image"
                         content="https://mantenna.vercel.app/introduction.png"
                     />
-                    <meta name="google-site-verification" content="DUi_8HqzPCMt1mqUvHo2f4D8VY2Td_jnJObs47FPbQs" />
+                    <meta
+                        name="description"
+                        content="Mantenna, youtube üzerindeki canlı yayınları aynı anda izlemenize olanak tanıyan bir web uygulamasıdır."
+                    />
+                    <meta
+                        name="google-site-verification"
+                        content="DUi_8HqzPCMt1mqUvHo2f4D8VY2Td_jnJObs47FPbQs"
+                    />
                     <link rel="shortcut icon" href="/favicon.svg" />
                 </Head>
                 <body>
