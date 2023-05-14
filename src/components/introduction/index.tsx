@@ -24,7 +24,7 @@ export default function Introduction() {
                     </h3>
                     <div className="grid gap-y-2 sm:text-lg font-light">
                         <p>
-                            📌 Mantenna, youtube üzerindeki canlı yayınları aynı
+                            📌 Mantenna, youtube üzerindeki birden fazla yayını aynı
                             anda izlemenize olanak tanıyan bir web
                             uygulamasıdır.
                         </p>
